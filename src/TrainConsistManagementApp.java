@@ -1,5 +1,5 @@
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrainConsistManagementApp {
 
@@ -10,27 +10,24 @@ public class TrainConsistManagementApp {
         System.out.println("=== Train Consist Management App ===");
         System.out.println("======================================\n");
 
-        System.out.println("UC5 - Preserve Insertion Order of Bogies\n");
+        System.out.println("UC6 - Map Bogie to Capacity (HashMap)\n");
 
-        // LinkedHashSet (order + uniqueness)
-        Set<String> formation = new LinkedHashSet<>();
+        // Create HashMap (Key = Bogie, Value = Capacity)
+        Map<String, Integer> capacityMap = new HashMap<>();
 
-        // Add bogies
-        System.out.println("Adding bogies...");
-        formation.add("Engine");
-        formation.add("Sleeper");
-        formation.add("Cargo");
-        formation.add("Guard");
+        // Insert capacities
+        System.out.println("Adding bogie capacities...");
+        capacityMap.put("Sleeper", 72);
+        capacityMap.put("AC Chair", 60);
+        capacityMap.put("First Class", 40);
 
-        // Add duplicate
-        formation.add("Sleeper"); // duplicate (will be ignored)
+        // Display all entries
+        System.out.println("\nBogie Capacity Details:");
 
-        // Final formation
-        System.out.println("\nFinal Train Formation: " + formation);
+        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
 
-        System.out.println("\nNote:");
-        System.out.println("LinkedHashSet preserves order and removes duplicates automatically.");
-
-        System.out.println("\nProgram completed...");
+        System.out.println("\nProgram continues...");
     }
 }

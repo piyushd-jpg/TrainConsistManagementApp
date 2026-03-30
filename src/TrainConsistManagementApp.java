@@ -1,30 +1,35 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class TrainConsistManagementApp {
-    import java.util.ArrayList;
-import java.util.List;
 
-    public class TrainConsistManagementApp {
+    public static void main(String[] args) {
 
-        public static void main(String[] args) {
+        // Welcome banner
+        System.out.println("======================================");
+        System.out.println("=== Train Consist Management App ===");
+        System.out.println("======================================\n");
 
-            // Display welcome banner
-            System.out.println("======================================");
-            System.out.println("=== Train Consist Management App ===");
-            System.out.println("======================================\n");
+        System.out.println("UC3 - Track Unique Bogie IDs\n");
 
-            // Create a dynamic List to store train bogies
-            List<String> trainConsist = new ArrayList<>();
+        // Create HashSet (stores only unique values)
+        Set<String> bogies = new HashSet<>();
 
-            // Display initialization message
-            System.out.println("Train initialized successfully...");
+        // Add bogie IDs (including duplicates)
+        System.out.println("Adding bogie IDs...");
+        bogies.add("BG101");
+        bogies.add("BG102");
+        bogies.add("BG103");
+        bogies.add("BG104");
 
-            // Display initial bogie count
-            System.out.println("Initial Bogie Count: " + trainConsist.size());
+        // Duplicate entries
+        bogies.add("BG101"); // duplicate
+        bogies.add("BG102"); // duplicate
 
-            // Display current train consist
-            System.out.println("Current Train Consist: " + trainConsist);
+        // Display final set
+        System.out.println("\nFinal Unique Bogie IDs: " + bogies);
 
-            // Final system message
-            System.out.println("\nSystem ready for operations...");
-        }
+        System.out.println("\nDuplicates are automatically removed by HashSet.");
+        System.out.println("\nProgram continues...");
     }
 }
